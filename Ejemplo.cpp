@@ -9,12 +9,13 @@ struct EMP{
 
 int main(){
     EMP EMPLEADOS[100];
-    int n, aux, num_mayor;
+    int n, num_mayor;
+    float aux;
     string nom_mayor;
 
     cout << "Ingrese el numero de empleados:" << endl;
     cin >> n;
-    int suma[n];
+    float suma[n];
 
     for (int i = 0; i < n; i++){
         cout << "Numero del empleado: ";
@@ -33,10 +34,16 @@ int main(){
     
     aux = suma[0];
     for (int i=0; i<n; i++){
-        if (suma[i] > aux){
+        if (suma[i] >= aux){
             aux = suma[i];
             num_mayor = i+1;
             nom_mayor = EMPLEADOS[i].nom;
+        }
+    }
+
+    for (int i=0; i<n; i++){
+        if (suma[i] > 100) {
+            EMPLEADOS[i].salario = EMPLEADOS[i].salario * 110/100;
         }
     }
 
