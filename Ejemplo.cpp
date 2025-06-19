@@ -55,9 +55,17 @@ int main(){
         cout << "\n";
     }
 
-    cout << "Empleado con mayores ventas anuales:" << endl;
+    cout << "EMPLEADO CON MAYORES VENTAS A NIVEL ANUAL:" << endl;
     cout << "Numero: " << num_mayor << endl;
-    cout << "Nombre: " << nom_mayor << endl;
+    cout << "Nombre: " << nom_mayor << endl << "\n";
+
+    cout << "EMPLEADOS CON VENTAS INFERIORES A 30 UNIDADES EN DICIEMBRE:" << endl;
+    for (int i=0; i<n; i++){
+        if (EMPLEADOS[i].ven[11] < 30) {
+            cout << "Empleado Nro: " << EMPLEADOS[i].num << endl;
+            cout << EMPLEADOS[i].nom << endl << "\n";
+        }
+    }
 
     return 0;
 }
