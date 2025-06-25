@@ -17,6 +17,8 @@ void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
 
+void modificaContacto(int, contactoEmail &);
+
 int main(){
     int n, op;
     char salir;
@@ -26,15 +28,20 @@ int main(){
     correo email;
     contactoEmail cont, lista[100];
     n = 0;
+
+    int modificar;
+
     do{
         system("cls");
         cout<<"Menu de opciones -------------------------"<<endl;
         cout<<"1. Agregar contacto"<<endl;
-        cout<<"2. Mostrar contactos"<<endl;
+        cout<<"2. Modificar un contacto"<<endl;
+        cout<<"3. Mostrar contactos"<<endl;
         cout<<"0. Salir"<<endl;
         cout<< endl;
         cout<<"Elige una opcion: "; cin>>op;
         cout<<endl;
+
         switch(op){
             case 1:
                 cout<<"Ingrese los datos de un usuario:"<<endl;
@@ -59,6 +66,15 @@ int main(){
                     imprimeContacto(lista[i]);
                     cout<<endl;
                 }
+                cout<<"QUE CONTACTO DESEA MODIFICAR?: "; cin >> modificar;
+                modificaContacto(modificar, lista[modificar-1]);
+                break;
+            case 3:
+                for(int i = 0; i < n; i++){
+                    cout<<"Contacto #"<<i+1<<endl;
+                    imprimeContacto(lista[i]);
+                    cout<<endl;
+                }
                 system("pause");
                 break;
             case 0:
@@ -73,7 +89,12 @@ int main(){
                 break;
         }
     } while(op != 0);
+
     return 0;
+}
+
+void modificaContacto(int aux, contactoEmail &){
+    cout << "Indique el apartado que desea modificar:" << endl;
 }
 
 void leerContacto(contactoEmail &c, string n, char s, int e, correo em){
